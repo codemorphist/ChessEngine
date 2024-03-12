@@ -12,7 +12,7 @@ class MoveType(Enum):
     Check = auto()
     Mat = auto()
     Pat = auto()
-    # -- TODO --
+    # TODO
     Passant = auto()
     Castling = auto()
 

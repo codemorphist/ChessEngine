@@ -1,5 +1,5 @@
 from utils.enums import Color
-from utils.utils import Coord
+from utils.coord import Coord
 
 
 class Piece:
