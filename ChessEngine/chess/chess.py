@@ -1,8 +1,8 @@
-from utils.move import Move
-from pieces import Piece
-from utils.enums import Color
-from utils.coord import Coord
-from utils.fen import fen_to_board, board_to_fen
+from ChessEngine.pieces import Piece
+from ChessEngine.utils.move import Move
+from ChessEngine.utils.enums import Color
+from ChessEngine.utils import Coord
+from ChessEngine.utils.fen import fen_to_board, board_to_fen
 
 
 class Chess:
@@ -33,7 +33,8 @@ class Chess:
         :param piece: Piece to set
         :param pos: to set Piece
         """
-        ...
+        x, y = pos
+        self._board[y][x] = piece
 
     def get_piece(self, pos: Coord) -> Piece:
         """
@@ -42,4 +43,14 @@ class Chess:
         :param pos: with Piece
         :return: Piece from pos
         """
-        ...
+        x, y = pos
+        return self._board[y][x]
+
+    def get_moves(self, pos: Coord) -> list[Coord]:
+        moves = []
+        piece = self.get_piece(pos)
+        for m in piece.get_moves(pos, self.board):
+            moves.append(m)
+        for m in piece.get_attack(pos, self.board):
+            moves.append(m)
+        return moves

@@ -1,5 +1,5 @@
-from utils.enums import MoveType, Color
-from utils.utils import Coord
+from ChessEngine.utils.enums import MoveType, Color
+from ChessEngine.utils.coord import Coord
 
 
 class Move:

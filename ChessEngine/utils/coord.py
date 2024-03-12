@@ -15,7 +15,6 @@ class Coord:
         rank = 8 - self.y
         return f"{file}{rank}"
 
-    @staticmethod
     def _to_coord(self, alg: str) -> tuple[int, int]:
         """
         Convert algebraic notation to coordinates
@@ -29,4 +28,5 @@ class Coord:
         yield self.x
         yield self.y
 
-
+    def __str__(self) -> str:
+        return self.algebraic

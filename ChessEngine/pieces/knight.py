@@ -1,4 +1,5 @@
-from piece import Piece
+from ChessEngine.pieces import Piece
+from ChessEngine.utils import Coord
 
 
 class Knight(Piece):
@@ -6,13 +7,13 @@ class Knight(Piece):
     Class of Knight
     """
 
-    def get_moves(self, board):
+    def get_moves(self, pos: Coord, board):
         """
         Return all moves from current position
         """
         pass
 
-    def get_attack(self, board):
+    def get_attack(self, pos: Coord, board):
         """
         Return all attack moves from current position
         """

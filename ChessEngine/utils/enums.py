@@ -15,5 +15,3 @@ class MoveType(Enum):
     # TODO
     Passant = auto()
     Castling = auto()
-
-

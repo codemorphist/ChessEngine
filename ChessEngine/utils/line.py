@@ -1,4 +1,4 @@
-from utils.coord import Coord
+from ChessEngine.utils.coord import Coord
 
 
 class Line:
@@ -10,9 +10,8 @@ class Line:
         """
         Calculate current position is on line
 
-        :param pos position to check
-
-        :return True if pos on line else False
+        :param: pos position to check
+        :return: True if pos on line else False
         """
         x, y = pos.x, pos.y
         x1, y1 = self.start.x, self.start.y
