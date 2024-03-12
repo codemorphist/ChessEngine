@@ -12,7 +12,7 @@ def king_near(color: Color, pos: Coord, board: list[list[Piece]]) -> bool:
             if not on_board(Coord(i, j)):
                 continue
             fig = board[j][i]
-            if isinstance(fig, King) or fig.color is not color:
+            if isinstance(fig, King) and fig.color is not color:
                 return True
     return False
 
@@ -27,14 +27,14 @@ class King(Piece):
         Return all moves from current position
         """
         x, y = pos
-        for i in range(x+1, x+2):
-            for j in range(y+1, y+2):
+        for i in range(x-1, x+2):
+            for j in range(y-1, y+2):
                 coord = Coord(i, j)
-                if on_board(coord) and can_move(coord, board):
-                    yield Coord
+                if can_move(coord, board) and not king_near(self.color, coord, board):
+                    yield coord
 
     def get_attack(self, pos: Coord, board):
         """
         Return all attack moves from current position
         """
-        yield None
+        yield Coord(-1, -1)

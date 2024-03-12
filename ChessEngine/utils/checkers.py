@@ -8,6 +8,9 @@ def on_board(pos: Coord) -> bool:
     return 0 <= x <= 7 and 0 <= y <= 7
 
 
+def can_move(pos: Coord, board: list[list[Piece]]) -> bool:
+    x, y = pos
+    return on_board(pos) and board[y][x] is None
 
 
 def can_attack(fig: Piece, pos: Coord, board: list[list[Piece]]) -> bool:
@@ -18,6 +21,3 @@ def can_attack(fig: Piece, pos: Coord, board: list[list[Piece]]) -> bool:
     return attacked is not None and attacked.color is not fig.color
 
 
-def can_move(pos: Coord, board: list[list[Piece]]) -> bool:
-    x, y = pos
-    return on_board(pos) and board[y][x] is None
