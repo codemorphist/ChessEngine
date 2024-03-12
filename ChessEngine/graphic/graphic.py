@@ -3,6 +3,7 @@ from ChessEngine.utils.enums import *
 from ChessEngine.pieces import *
 from ChessEngine.utils.fen import piece_to_char
 from .sprites import *
+from ..utils import Coord
 
 
 def sprite(fig: Piece):
@@ -20,21 +21,24 @@ def sprite(fig: Piece):
         return WHITE_KING if fig.color is Color.White else BLACK_KING
 
 
-def draw_board(chess: Chess):
+def draw_board(chess: Chess, attacked=[]):
     board = chess.board
     for y, row in enumerate(board):
         print(8 - y, end=" ")
         for x, fig in enumerate(row):
-            print(WHITE_TILE_COLOR if (x + y) % 2 == 0 else BLACK_TILE_COLOR, end="")
+            if str(Coord(x, y)) in attacked:
+                print("\033[41m", end="")
+            else:
+                print(WHITE_TILE_COLOR if (x + y) % 2 == 0 else BLACK_TILE_COLOR, end="")
             if fig is None:
-                print(" ", end=" ")
+                print("  ", end=" ")
             else:
                 print(WHITE_FIGURE_COLOR if fig.color is Color.White else BLACK_FIGURE_COLOR, end="")
-                print(sprite(fig), end=" ")
+                print("", sprite(fig), end=" ")
         print(RESET_COLOR)
     print("  ", end="")
     for i in range(8):
-        print(chr(ord("a") + i), end=" ")
+        print("", chr(ord("a") + i), end=" ")
     print()
 
 

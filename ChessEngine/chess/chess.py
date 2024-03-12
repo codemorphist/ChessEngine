@@ -1,4 +1,4 @@
-from ChessEngine.pieces import Piece
+from ChessEngine.pieces import Piece, Pawn
 from ChessEngine.utils.move import Move
 from ChessEngine.utils.enums import Color
 from ChessEngine.utils import Coord
@@ -47,10 +47,12 @@ class Chess:
         return self._board[y][x]
 
     def get_moves(self, pos: Coord) -> list[Coord]:
-        moves = []
+        moves = set()
         piece = self.get_piece(pos)
+        if piece is None:
+            return []
         for m in piece.get_moves(pos, self.board):
-            moves.append(m)
+            moves.add(m)
         for m in piece.get_attack(pos, self.board):
-            moves.append(m)
-        return moves
+            moves.add(m)
+        return list(moves)

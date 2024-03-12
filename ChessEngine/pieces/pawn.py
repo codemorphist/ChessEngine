@@ -25,8 +25,7 @@ class Pawn(Piece):
         Return all attack moves from current position
         """
         x, y = pos
-        for pattern in [(-1, -1), (1, -1)]:
-            i, j = pattern
+        for i, j in [(-1, -1), (1, -1)]:
             if self.color is Color.Black:
                 i, j = -i, -j
             if can_attack(self, Coord(x + i, y + j), board):
