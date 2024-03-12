@@ -1,6 +1,6 @@
-from figures import *
-from enums import Color, MoveType
-from utils import Coord
+from pieces import *
+from utils.enums import Color, MoveType
+from utils.utils import Coord
 
 
 class Move:
@@ -44,7 +44,7 @@ class Chess:
         """
         Load position from FEN
 
-        :return return array of figures
+        :return return array of pieces
         """
         ...
 
