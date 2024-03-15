@@ -188,6 +188,12 @@ class Chess:
         coord = X88[pos]
         self._board[coord] = piece_symbol
 
+    def _get(self, pos: int) -> str:
+        fig = self._board[pos]
+        return fig if fig is not None else " "
+
+    def get(self, pos: str) -> str:
+        return self.get(numeric(pos))
 
     def _attacked(self, square: int, color: Color) -> bool:
         if square & 0x88:
@@ -392,6 +398,19 @@ class Chess:
 
     def is_statemate(self) -> bool:
         return not self.is_check() and not len(self._moves())
+
+    @property
+    def board(self) -> list[list[str]]:
+        board = []
+        row = []
+        count = 0
+        for sq in BOARD:
+            row.append(self._get(sq))            
+            count += 1
+            if (sq + 1) % 8 == 0:
+                board.append(row)
+                row = []
+        return board
 
     def ascii(self) -> str:
         board = ""
