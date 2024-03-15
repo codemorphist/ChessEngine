@@ -153,6 +153,31 @@ class Chess:
 
         self._load(fen)
 
+    @property
+    def fen(self) -> str:
+        fen = ""
+        count = 0
+        empty_count = 0
+        for sq in BOARD:
+            fig = self._board[sq]
+            if fig is not None:
+                if empty_count > 0:
+                    fen += str(empty_count)
+                    empty_count = 0
+                fen += fig
+            else:
+                empty_count += 1
+            count += 1
+            if (sq + 1) % 8 == 0:
+                if empty_count > 0: 
+                    fen += str(empty_count)
+                    empty_count = 0
+                fen += "/"
+        fen = fen[:-1]
+        fen += f" {self._turn.value}"
+        return fen
+
+
     def _load(self, fen: str) -> None:
         self._board = [None for _ in range(128)]
 
@@ -219,7 +244,7 @@ class Chess:
             index = difference + 119
             if ATTACKS[index] & PIECE_MASKS[piece_type]:
                 if piece_type == Piece.PAWN:
-                    if difference < 0:
+                    if difference > 0:
                         if piece_color == Color.WHITE:
                             return True
                     else:
@@ -255,11 +280,15 @@ class Chess:
                 self._kings[get_piece_color(piece)] = square
  
     def _move(self, move: Move):
+        fen = self.fen
+        self._history.append((move, fen))
+
         f, t = move 
         piece = self._board[f]
         self._board[f] = None
         self._board[t] = piece
-        self._history.append(move)
+
+        self._turn = swap_color(self._turn)
         self._update()
 
     def move(self, f: str, t: str):
@@ -270,11 +299,8 @@ class Chess:
         self._move(Move(piece_type, piece_color, fn, tn))
 
     def undo(self):
-        f, t = self._history.pop()
-        piece = self._board[t]
-        self._board[t] = None
-        self._board[f] = piece
-        self._update()
+        _, fen = self._history.pop()
+        self._load(fen)
 
     def _moves(self,
                for_piece: Piece = None, 
@@ -391,7 +417,7 @@ class Chess:
         return self._attacked(self._kings[color], swap_color(color))
 
     def is_check(self) -> bool:
-        return _is_king_attacked() 
+        return self._is_king_attacked(self._turn) 
 
     def is_checkmate(self) -> bool:
         return self.is_check() and not len(self._moves())

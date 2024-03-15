@@ -3,7 +3,7 @@ from sprites import *
 
 
 def sprite(fig: str) -> str:
-    color = fig.islower()
+    color = fig.isupper()
     fig = fig.lower()
     if fig == "p":
         return WHITE_PAWN if color else BLACK_PAWN
