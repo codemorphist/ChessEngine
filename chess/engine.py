@@ -2,7 +2,7 @@ import os
 from chess import *
 from graphic import *
 
-fen = input()
+fen = input("Input FEN of position: ")
 
 chess = Chess(fen)
 
