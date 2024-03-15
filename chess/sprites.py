@@ -1,6 +1,6 @@
 # Colors
 BLACK_TILE_COLOR = "\033[44m"  # bg ansi
-WHITE_TILE_COLOR = "\033[47m"  # bg ansi
+WHITE_TILE_COLOR = "\033[48;5;252m"  # bg ansi
 BLACK_FIGURE_COLOR = "\033[30m"  # fg ansi
 WHITE_FIGURE_COLOR = "\033[30m"  # fg ansi
 RESET_COLOR = "\033[0m"
