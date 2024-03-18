@@ -284,7 +284,9 @@ class Chess:
         self._history.append((move, fen))
 
         f, t = move 
-        piece = self._board[f]
+        piece = move._piece.value
+        if move._color == Color.WHITE:
+            piece = piece.upper()
         self._board[f] = None
         self._board[t] = piece
 
@@ -340,6 +342,15 @@ class Chess:
             if piece_type == Piece.PAWN:
                 # default moves
                 to = pos + PAWN_OFFSETS[us][0]
+                if to & 0x88:
+                    continue
+                if self._board[to] is None and rank(to) in [RANK_1, RANK_8]:
+                    moves.append(Move(Piece.KNIGHT, us, pos, to))
+                    moves.append(Move(Piece.BISHOP, us, pos, to))
+                    moves.append(Move(Piece.ROOK, us, pos, to))
+                    moves.append(Move(Piece.QUEEN, us, pos, to))
+                    continue
+
                 if self._board[to] is None:
                     moves.append(
                         Move(piece_type, us, pos, to)
