@@ -1,0 +1,89 @@
+8 [48;5;247m   [48;5;7m [30m♜ [48;5;247m [30m♝ [48;5;7m   [48;5;247m   [48;5;7m   [48;5;247m   [48;5;7m [30m♜ [0m
+7 [48;5;7m [30m♟ [48;5;247m [30m♚ [48;5;7m [30m♙ [48;5;247m [30m♟ [48;5;7m   [48;5;247m   [48;5;7m   [48;5;247m [30m♟ [0m
+6 [48;5;247m   [48;5;7m [30m♝ [48;5;247m   [48;5;7m [30m♙ [48;5;247m   [48;5;7m   [48;5;247m   [48;5;7m [30m♞ [0m
+5 [48;5;7m   [48;5;247m [30m♕ [48;5;7m   [48;5;247m   [48;5;7m   [48;5;247m   [48;5;7m   [48;5;247m   [0m
+4 [48;5;247m [30m♘ [48;5;7m   [48;5;247m   [48;5;7m   [48;5;247m [30m♙ [48;5;7m [30m♟ [48;5;247m   [48;5;7m   [0m
+3 [48;5;7m   [48;5;247m   [48;5;7m   [48;5;247m   [48;5;7m   [48;5;247m   [48;5;7m   [48;5;247m   [0m
+2 [48;5;247m [30m♙ [48;5;7m   [48;5;247m [30m♙ [48;5;7m   [48;5;247m   [48;5;7m   [48;5;247m [30m♙ [48;5;7m [30m♙ [0m
+1 [48;5;7m   [48;5;247m   [48;5;7m   [48;5;247m   [48;5;7m   [48;5;247m   [48;5;7m   [48;5;247m [30m♔ [0m
+   a  b  c  d  e  f  g  h 
+QUEEN WHITE  b5-b6
+KING BLACK  b7-a8
+QUEEN WHITE  b6-b8
+----------
+QUEEN WHITE  b5-e5
+KING BLACK  b7-c6
+QUEEN WHITE  e5-d5
+----------
+QUEEN WHITE  b5-f5
+KING BLACK  b7-c6
+QUEEN WHITE  f5-d5
+----------
+QUEEN WHITE  b5-g5
+KING BLACK  b7-c6
+QUEEN WHITE  g5-d5
+----------
+QUEEN WHITE  b5-h5
+KING BLACK  b7-c6
+QUEEN WHITE  h5-d5
+----------
+QUEEN WHITE  b5-d3
+KING BLACK  b7-c6
+QUEEN WHITE  d3-d5
+----------
+QUEEN WHITE  b5-b3
+KING BLACK  b7-c6
+QUEEN WHITE  b3-d5
+----------
+QUEEN WHITE  b5-a5
+KING BLACK  b7-c6
+QUEEN WHITE  a5-d5
+----------
+KNIGHT WHITE  a4-b6
+ROOK BLACK  b8-a8
+KNIGHT WHITE  b6-d7
+----------
+KNIGHT WHITE  a4-b6
+ROOK BLACK  b8-a8
+KNIGHT WHITE  b6-d5
+----------
+KNIGHT WHITE  a4-b6
+ROOK BLACK  b8-a8
+KNIGHT WHITE  b6-c4
+----------
+KNIGHT WHITE  a4-b6
+ROOK BLACK  b8-a8
+KNIGHT WHITE  b6-a4
+----------
+PAWN WHITE  e4-e5
+ROOK BLACK  b8-a8
+KNIGHT WHITE  a4-c5
+----------
+PAWN WHITE  a2-a3
+ROOK BLACK  b8-a8
+KNIGHT WHITE  a4-c5
+----------
+PAWN WHITE  c2-c3
+ROOK BLACK  b8-a8
+KNIGHT WHITE  a4-c5
+----------
+PAWN WHITE  c2-c4
+ROOK BLACK  b8-a8
+KNIGHT WHITE  a4-c5
+----------
+PAWN WHITE  g2-g3
+ROOK BLACK  b8-a8
+KNIGHT WHITE  a4-c5
+----------
+PAWN WHITE  g2-g4
+ROOK BLACK  b8-a8
+KNIGHT WHITE  a4-c5
+----------
+PAWN WHITE  h2-h3
+ROOK BLACK  b8-a8
+KNIGHT WHITE  a4-c5
+----------
+PAWN WHITE  h2-h4
+ROOK BLACK  b8-a8
+KNIGHT WHITE  a4-c5
+----------

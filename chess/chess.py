@@ -342,16 +342,13 @@ class Chess:
             if piece_type == Piece.PAWN:
                 # default moves
                 to = pos + PAWN_OFFSETS[us][0]
-                if to & 0x88:
-                    continue
                 if self._board[to] is None and rank(to) in [RANK_1, RANK_8]:
                     moves.append(Move(Piece.KNIGHT, us, pos, to))
                     moves.append(Move(Piece.BISHOP, us, pos, to))
                     moves.append(Move(Piece.ROOK, us, pos, to))
                     moves.append(Move(Piece.QUEEN, us, pos, to))
-                    continue
 
-                if self._board[to] is None:
+                if self._board[to] is None and rank(to) not in [RANK_1, RANK_8]:
                     moves.append(
                         Move(piece_type, us, pos, to)
                     )
@@ -371,9 +368,16 @@ class Chess:
 
                     atk_fig = self._board[to]
                     if atk_fig is not None and get_piece_color(atk_fig) == them:
-                        moves.append(
-                            Move(piece_type, us, pos, to)
-                        )
+                        
+                        if rank(to) in [RANK_1, RANK_8]:
+                            moves.append(Move(Piece.KNIGHT, us, pos, to))
+                            moves.append(Move(Piece.BISHOP, us, pos, to))
+                            moves.append(Move(Piece.ROOK, us, pos, to))
+                            moves.append(Move(Piece.QUEEN, us, pos, to))
+                        else:
+                            moves.append(
+                                Move(piece_type, us, pos, to)
+                            )
                     else: # for passant
                         ... 
             else: # for other pieces
